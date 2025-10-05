@@ -1,0 +1,25 @@
+<div class="p-6 bg-gray-50 min-h-screen">
+  <h2 class="text-3xl font-bold mb-6 text-gray-800">📦 Orders</h2>
+
+  @if (loading) {
+    <p class="text-gray-500 animate-pulse">Loading orders...</p>
+  } @else if (orders.length === 0) {
+    <p class="text-gray-600">No orders found.</p>
+  } @else {
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      @for (order of orders; track order.id) {
+        <div
+          class="bg-white p-5 rounded-2xl shadow hover:shadow-lg transition cursor-pointer"
+          (click)="goToDetail(order.id)"
+        >
+          <h3 class="font-semibold text-xl mb-2 text-gray-700">Order #{{ order.id | slice:0:8 }}</h3>
+          <p class="text-gray-600">Total: <span class="font-bold">${{ order.totalAmount }}</span></p>
+          <p class="text-gray-500 text-sm">Created: {{ order.createdAt | date:'medium' }}</p>
+          <div class="mt-3">
+            <span class="inline-block bg-blue-100 text-blue-600 text-xs px-2 py-1 rounded-full">Items: {{ order.items.length }}</span>
+          </div>
+        </div>
+      }
+    </div>
+  }
+</div>
