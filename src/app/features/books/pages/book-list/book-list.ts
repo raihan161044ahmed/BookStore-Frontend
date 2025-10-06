@@ -5,6 +5,7 @@ import { BookCardComponent } from "../../book-card/book-card/book-card";
 
 @Component({
   selector: 'app-book-list',
+  standalone: true, 
   templateUrl: './book-list.html',
   imports: [BookCardComponent],
 })

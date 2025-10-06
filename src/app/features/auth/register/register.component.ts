@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
+  standalone: true,
   imports: [CommonModule, ReactiveFormsModule],
   selector: 'app-register',
   templateUrl: './register.component.html'

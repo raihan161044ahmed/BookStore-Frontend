@@ -1,31 +1,44 @@
-<div class="flex items-center justify-center min-h-screen bg-gray-100">
-  <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
-    <h2 class="text-2xl font-bold mb-6 text-center">Login</h2>
-    <form [formGroup]="loginForm" (ngSubmit)="submit()">
-      <div class="mb-4">
-        <label class="block mb-1 font-medium">Email</label>
-        <input type="email" formControlName="email" placeholder="you@example.com"
-               class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+<div class="flex items-center justify-center min-h-screen bg-gradient-to-br from-blue-100 to-indigo-100">
+  <div class="bg-white p-10 rounded-2xl shadow-2xl w-full max-w-md transform transition duration-500 hover:scale-105">
+    
+    <h2 class="text-3xl font-extrabold mb-8 text-center text-gray-800">Welcome Back</h2>
+
+    <form [formGroup]="loginForm" (ngSubmit)="submit()" class="space-y-6">
+
+      <!-- Email input -->
+      <div class="relative">
+        <input type="email" formControlName="email" placeholder=" " 
+               class="peer w-full px-4 pt-6 pb-2 border border-gray-300 rounded-lg text-gray-900 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none transition" />
+        <label class="absolute left-4 top-2 text-gray-400 text-sm transition-all peer-placeholder-shown:top-6 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-blue-500 peer-focus:text-sm">Email</label>
       </div>
-      <div class="mb-4">
-        <label class="block mb-1 font-medium">Password</label>
-        <input type="password" formControlName="password" placeholder="Password"
-               class="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500">
+
+      <!-- Password input -->
+      <div class="relative">
+        <input type="password" formControlName="password" placeholder=" " 
+               class="peer w-full px-4 pt-6 pb-2 border border-gray-300 rounded-lg text-gray-900 focus:border-blue-500 focus:ring-1 focus:ring-blue-500 focus:outline-none transition" />
+        <label class="absolute left-4 top-2 text-gray-400 text-sm transition-all peer-placeholder-shown:top-6 peer-placeholder-shown:text-gray-400 peer-placeholder-shown:text-base peer-focus:top-2 peer-focus:text-blue-500 peer-focus:text-sm">Password</label>
       </div>
-      @if (errorMessage) 
-        {
-        <div class="text-red-500 mb-4">
-            {{ errorMessage }}
+
+      <!-- Error message -->
+      @if (errorMessage) {
+        <div class="text-red-500 text-sm font-medium">
+          {{ errorMessage }}
         </div>
-        }
+      }
+
+      <!-- Submit button -->
       <button type="submit"
-              class="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition">
+              class="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-semibold py-3 rounded-lg shadow-lg hover:from-blue-700 hover:to-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-1 focus:ring-indigo-500 transition transform hover:scale-105">
         Login
       </button>
+
     </form>
-    <p class="mt-4 text-center text-gray-600">
-      Don't have an account?
-      <a routerLink="/auth/register" class="text-blue-600 hover:underline">Register</a>
+
+    <!-- Register link -->
+    <p class="mt-6 text-center text-gray-600 text-sm">
+      Don't have an account? 
+      <a routerLink="/auth/register" class="text-blue-600 font-medium hover:underline">Register here</a>
     </p>
+    
   </div>
 </div>

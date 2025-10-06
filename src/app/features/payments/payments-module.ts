@@ -10,6 +10,6 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [CommonModule,PaymentHistoryComponent, PaymentCheckoutComponent,RouterModule.forChild(routes)]
+  imports: [RouterModule.forChild(routes)]
 })
 export class PaymentsModule {}
