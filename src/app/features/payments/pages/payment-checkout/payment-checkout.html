@@ -1,1 +1,54 @@
-<p>payment-checkout works!</p>
+<div class="max-w-lg mx-auto mt-10 p-6 bg-white rounded-2xl shadow-md">
+  <h2 class="text-xl font-semibold mb-6 text-gray-800">Checkout Payment</h2>
+
+  @if (successMsg) {
+    <div class="mb-4 p-3 bg-green-100 text-green-800 rounded">{{ successMsg }}</div>
+  }
+
+  @if (errorMsg) {
+    <div class="mb-4 p-3 bg-red-100 text-red-800 rounded">{{ errorMsg }}</div>
+  }
+
+  <form (ngSubmit)="onSubmit()" class="space-y-4">
+    <div>
+      <label class="block text-gray-700 mb-2">Order ID</label>
+      <input
+        [(ngModel)]="payment.orderId"
+        name="orderId"
+        required
+        class="w-full border rounded-lg px-3 py-2 focus:ring focus:ring-blue-300"
+      />
+    </div>
+
+    <div>
+      <label class="block text-gray-700 mb-2">Amount</label>
+      <input
+        type="number"
+        [(ngModel)]="payment.amount"
+        name="amount"
+        required
+        class="w-full border rounded-lg px-3 py-2 focus:ring focus:ring-blue-300"
+      />
+    </div>
+
+    <div>
+      <label class="block text-gray-700 mb-2">Payment Method</label>
+      <select
+        [(ngModel)]="payment.method"
+        name="method"
+        class="w-full border rounded-lg px-3 py-2 focus:ring focus:ring-blue-300"
+      >
+        <option value="Card">Card</option>
+        <option value="Cash">Cash</option>
+        <option value="Bank">Bank Transfer</option>
+      </select>
+    </div>
+
+    <button
+      type="submit"
+      class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition"
+    >
+      Pay Now
+    </button>
+  </form>
+</div>
